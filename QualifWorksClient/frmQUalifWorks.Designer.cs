@@ -56,6 +56,7 @@ namespace QualifWorksClient
             this.degreeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.positionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.btnUpdateSupervisors = new System.Windows.Forms.Button();
+            this.btnCancelSupervisors = new System.Windows.Forms.Button();
             this.tbcQualifWorks.SuspendLayout();
             this.tbpSupervisors.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsDataModel)).BeginInit();
@@ -73,28 +74,30 @@ namespace QualifWorksClient
             this.tbcQualifWorks.Location = new System.Drawing.Point(0, 0);
             this.tbcQualifWorks.Name = "tbcQualifWorks";
             this.tbcQualifWorks.SelectedIndex = 0;
-            this.tbcQualifWorks.Size = new System.Drawing.Size(583, 414);
+            this.tbcQualifWorks.Size = new System.Drawing.Size(740, 443);
             this.tbcQualifWorks.TabIndex = 0;
             // 
             // tbpSupervisors
             // 
+            this.tbpSupervisors.Controls.Add(this.btnCancelSupervisors);
             this.tbpSupervisors.Controls.Add(this.btnUpdateSupervisors);
             this.tbpSupervisors.Controls.Add(this.dgvSupervisors);
             this.tbpSupervisors.Controls.Add(this.bnSupervisors);
             this.tbpSupervisors.Location = new System.Drawing.Point(4, 25);
             this.tbpSupervisors.Name = "tbpSupervisors";
             this.tbpSupervisors.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpSupervisors.Size = new System.Drawing.Size(575, 385);
+            this.tbpSupervisors.Size = new System.Drawing.Size(732, 414);
             this.tbpSupervisors.TabIndex = 0;
             this.tbpSupervisors.Text = "Darbu vadītāji";
             this.tbpSupervisors.UseVisualStyleBackColor = true;
+            this.tbpSupervisors.Leave += new System.EventHandler(this.tbpSupervisors_Leave);
             // 
             // tbpStudents
             // 
             this.tbpStudents.Location = new System.Drawing.Point(4, 25);
             this.tbpStudents.Name = "tbpStudents";
             this.tbpStudents.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpStudents.Size = new System.Drawing.Size(575, 375);
+            this.tbpStudents.Size = new System.Drawing.Size(732, 414);
             this.tbpStudents.TabIndex = 1;
             this.tbpStudents.Text = "Studenti";
             this.tbpStudents.UseVisualStyleBackColor = true;
@@ -145,7 +148,7 @@ namespace QualifWorksClient
             this.bnSupervisors.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bnSupervisors.Name = "bnSupervisors";
             this.bnSupervisors.PositionItem = this.bindingNavigatorPositionItem;
-            this.bnSupervisors.Size = new System.Drawing.Size(569, 27);
+            this.bnSupervisors.Size = new System.Drawing.Size(726, 27);
             this.bnSupervisors.TabIndex = 0;
             this.bnSupervisors.Text = "bindingNavigator1";
             // 
@@ -253,7 +256,7 @@ namespace QualifWorksClient
             this.dgvSupervisors.RowHeadersWidth = 51;
             this.dgvSupervisors.RowTemplate.Height = 24;
             this.dgvSupervisors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSupervisors.Size = new System.Drawing.Size(548, 310);
+            this.dgvSupervisors.Size = new System.Drawing.Size(732, 293);
             this.dgvSupervisors.TabIndex = 1;
             // 
             // nameDataGridViewTextBoxColumn
@@ -309,24 +312,36 @@ namespace QualifWorksClient
             // 
             // btnUpdateSupervisors
             // 
-            this.btnUpdateSupervisors.Location = new System.Drawing.Point(238, 356);
+            this.btnUpdateSupervisors.Location = new System.Drawing.Point(221, 362);
             this.btnUpdateSupervisors.Name = "btnUpdateSupervisors";
-            this.btnUpdateSupervisors.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdateSupervisors.Size = new System.Drawing.Size(83, 32);
             this.btnUpdateSupervisors.TabIndex = 2;
             this.btnUpdateSupervisors.Text = "Saglabāt";
             this.btnUpdateSupervisors.UseVisualStyleBackColor = true;
             this.btnUpdateSupervisors.Click += new System.EventHandler(this.btnUpdateSupervisors_Click);
             // 
+            // btnCancelSupervisors
+            // 
+            this.btnCancelSupervisors.Location = new System.Drawing.Point(342, 362);
+            this.btnCancelSupervisors.Name = "btnCancelSupervisors";
+            this.btnCancelSupervisors.Size = new System.Drawing.Size(84, 32);
+            this.btnCancelSupervisors.TabIndex = 3;
+            this.btnCancelSupervisors.Text = "Atcelt";
+            this.btnCancelSupervisors.UseVisualStyleBackColor = true;
+            this.btnCancelSupervisors.Click += new System.EventHandler(this.btnCancelSupervisors_Click);
+            // 
             // frmQualifWorks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(583, 414);
+            this.ClientSize = new System.Drawing.Size(740, 443);
             this.Controls.Add(this.tbcQualifWorks);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "frmQualifWorks";
             this.Text = "Noslēguma darbi";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmQualifWorks_FormClosing);
+            this.Load += new System.EventHandler(this.frmQualifWorks_Load);
             this.tbcQualifWorks.ResumeLayout(false);
             this.tbpSupervisors.ResumeLayout(false);
             this.tbpSupervisors.PerformLayout();
@@ -367,6 +382,7 @@ namespace QualifWorksClient
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.Button btnUpdateSupervisors;
+        private System.Windows.Forms.Button btnCancelSupervisors;
     }
 }
 
