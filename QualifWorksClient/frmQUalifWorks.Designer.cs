@@ -33,52 +33,63 @@ namespace QualifWorksClient
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQualifWorks));
             this.tbcQualifWorks = new System.Windows.Forms.TabControl();
             this.tbpSupervisors = new System.Windows.Forms.TabPage();
-            this.tbpStudents = new System.Windows.Forms.TabPage();
-            this.dsDataModel = new DataModel.DataModelDataSet();
-            this.taQualifWorks = new DataModel.DataModelDataSetTableAdapters.QualifWorksTableAdapter();
-            this.taSupervisors = new DataModel.DataModelDataSetTableAdapters.SupervisorsTableAdapter();
-            this.bsSupervisors = new System.Windows.Forms.BindingSource(this.components);
+            this.btnCancelSupervisors = new System.Windows.Forms.Button();
+            this.btnUpdateSupervisors = new System.Windows.Forms.Button();
+            this.dgvSupervisors = new System.Windows.Forms.DataGridView();
             this.bnSupervisors = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.dgvSupervisors = new System.Windows.Forms.DataGridView();
+            this.tbpStudents = new System.Windows.Forms.TabPage();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.surnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.degreeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.positionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.btnUpdateSupervisors = new System.Windows.Forms.Button();
-            this.btnCancelSupervisors = new System.Windows.Forms.Button();
+            this.bsSupervisors = new System.Windows.Forms.BindingSource(this.components);
+            this.dsDataModel = new DataModel.DataModelDataSet();
+            this.taQualifWorks = new DataModel.DataModelDataSetTableAdapters.QualifWorksTableAdapter();
+            this.taSupervisors = new DataModel.DataModelDataSetTableAdapters.SupervisorsTableAdapter();
+            this.grbSupervisor = new System.Windows.Forms.GroupBox();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblSurname = new System.Windows.Forms.Label();
+            this.lblDegree = new System.Windows.Forms.Label();
+            this.lblPosition = new System.Windows.Forms.Label();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtSurname = new System.Windows.Forms.TextBox();
+            this.cmbDegree = new System.Windows.Forms.ComboBox();
+            this.fKQualifWorksSupervisorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbcQualifWorks.SuspendLayout();
             this.tbpSupervisors.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dsDataModel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsSupervisors)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSupervisors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bnSupervisors)).BeginInit();
             this.bnSupervisors.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSupervisors)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsSupervisors)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsDataModel)).BeginInit();
+            this.grbSupervisor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fKQualifWorksSupervisorsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tbcQualifWorks
             // 
             this.tbcQualifWorks.Controls.Add(this.tbpSupervisors);
             this.tbcQualifWorks.Controls.Add(this.tbpStudents);
-            this.tbcQualifWorks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbcQualifWorks.Location = new System.Drawing.Point(0, 0);
             this.tbcQualifWorks.Name = "tbcQualifWorks";
             this.tbcQualifWorks.SelectedIndex = 0;
-            this.tbcQualifWorks.Size = new System.Drawing.Size(740, 443);
+            this.tbcQualifWorks.Size = new System.Drawing.Size(735, 554);
             this.tbcQualifWorks.TabIndex = 0;
             // 
             // tbpSupervisors
             // 
+            this.tbpSupervisors.Controls.Add(this.grbSupervisor);
             this.tbpSupervisors.Controls.Add(this.btnCancelSupervisors);
             this.tbpSupervisors.Controls.Add(this.btnUpdateSupervisors);
             this.tbpSupervisors.Controls.Add(this.dgvSupervisors);
@@ -86,40 +97,51 @@ namespace QualifWorksClient
             this.tbpSupervisors.Location = new System.Drawing.Point(4, 25);
             this.tbpSupervisors.Name = "tbpSupervisors";
             this.tbpSupervisors.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpSupervisors.Size = new System.Drawing.Size(732, 414);
+            this.tbpSupervisors.Size = new System.Drawing.Size(727, 525);
             this.tbpSupervisors.TabIndex = 0;
             this.tbpSupervisors.Text = "Darbu vadītāji";
             this.tbpSupervisors.UseVisualStyleBackColor = true;
             this.tbpSupervisors.Leave += new System.EventHandler(this.tbpSupervisors_Leave);
             // 
-            // tbpStudents
+            // btnCancelSupervisors
             // 
-            this.tbpStudents.Location = new System.Drawing.Point(4, 25);
-            this.tbpStudents.Name = "tbpStudents";
-            this.tbpStudents.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpStudents.Size = new System.Drawing.Size(732, 414);
-            this.tbpStudents.TabIndex = 1;
-            this.tbpStudents.Text = "Studenti";
-            this.tbpStudents.UseVisualStyleBackColor = true;
+            this.btnCancelSupervisors.Location = new System.Drawing.Point(613, 467);
+            this.btnCancelSupervisors.Name = "btnCancelSupervisors";
+            this.btnCancelSupervisors.Size = new System.Drawing.Size(84, 32);
+            this.btnCancelSupervisors.TabIndex = 3;
+            this.btnCancelSupervisors.Text = "Atcelt";
+            this.btnCancelSupervisors.UseVisualStyleBackColor = true;
+            this.btnCancelSupervisors.Click += new System.EventHandler(this.btnCancelSupervisors_Click);
             // 
-            // dsDataModel
+            // btnUpdateSupervisors
             // 
-            this.dsDataModel.DataSetName = "DataModelDataSet";
-            this.dsDataModel.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.btnUpdateSupervisors.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnUpdateSupervisors.Location = new System.Drawing.Point(507, 467);
+            this.btnUpdateSupervisors.Name = "btnUpdateSupervisors";
+            this.btnUpdateSupervisors.Size = new System.Drawing.Size(83, 32);
+            this.btnUpdateSupervisors.TabIndex = 2;
+            this.btnUpdateSupervisors.Text = "Saglabāt";
+            this.btnUpdateSupervisors.UseVisualStyleBackColor = true;
+            this.btnUpdateSupervisors.Click += new System.EventHandler(this.btnUpdateSupervisors_Click);
             // 
-            // taQualifWorks
+            // dgvSupervisors
             // 
-            this.taQualifWorks.ClearBeforeFill = true;
-            // 
-            // taSupervisors
-            // 
-            this.taSupervisors.ClearBeforeFill = true;
-            // 
-            // bsSupervisors
-            // 
-            this.bsSupervisors.DataMember = "Supervisors";
-            this.bsSupervisors.DataSource = this.dsDataModel;
-            this.bsSupervisors.Sort = "Surname";
+            this.dgvSupervisors.AutoGenerateColumns = false;
+            this.dgvSupervisors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSupervisors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nameDataGridViewTextBoxColumn,
+            this.surnameDataGridViewTextBoxColumn,
+            this.degreeDataGridViewTextBoxColumn,
+            this.positionDataGridViewTextBoxColumn});
+            this.dgvSupervisors.DataSource = this.bsSupervisors;
+            this.dgvSupervisors.Location = new System.Drawing.Point(0, 35);
+            this.dgvSupervisors.MultiSelect = false;
+            this.dgvSupervisors.Name = "dgvSupervisors";
+            this.dgvSupervisors.RowHeadersWidth = 51;
+            this.dgvSupervisors.RowTemplate.Height = 24;
+            this.dgvSupervisors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvSupervisors.Size = new System.Drawing.Size(732, 250);
+            this.dgvSupervisors.TabIndex = 1;
             // 
             // bnSupervisors
             // 
@@ -148,9 +170,34 @@ namespace QualifWorksClient
             this.bnSupervisors.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bnSupervisors.Name = "bnSupervisors";
             this.bnSupervisors.PositionItem = this.bindingNavigatorPositionItem;
-            this.bnSupervisors.Size = new System.Drawing.Size(726, 27);
+            this.bnSupervisors.Size = new System.Drawing.Size(721, 27);
             this.bnSupervisors.TabIndex = 0;
             this.bnSupervisors.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(48, 24);
+            this.bindingNavigatorCountItem.Text = "no {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -185,16 +232,9 @@ namespace QualifWorksClient
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(48, 24);
-            this.bindingNavigatorCountItem.Text = "no {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorMoveNextItem
@@ -217,47 +257,18 @@ namespace QualifWorksClient
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
-            // bindingNavigatorAddNewItem
+            // tbpStudents
             // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
-            // 
-            // dgvSupervisors
-            // 
-            this.dgvSupervisors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.dgvSupervisors.AutoGenerateColumns = false;
-            this.dgvSupervisors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSupervisors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nameDataGridViewTextBoxColumn,
-            this.surnameDataGridViewTextBoxColumn,
-            this.degreeDataGridViewTextBoxColumn,
-            this.positionDataGridViewTextBoxColumn});
-            this.dgvSupervisors.DataSource = this.bsSupervisors;
-            this.dgvSupervisors.Location = new System.Drawing.Point(0, 35);
-            this.dgvSupervisors.MultiSelect = false;
-            this.dgvSupervisors.Name = "dgvSupervisors";
-            this.dgvSupervisors.RowHeadersWidth = 51;
-            this.dgvSupervisors.RowTemplate.Height = 24;
-            this.dgvSupervisors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSupervisors.Size = new System.Drawing.Size(732, 293);
-            this.dgvSupervisors.TabIndex = 1;
+            this.tbpStudents.Location = new System.Drawing.Point(4, 25);
+            this.tbpStudents.Name = "tbpStudents";
+            this.tbpStudents.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpStudents.Size = new System.Drawing.Size(727, 525);
+            this.tbpStudents.TabIndex = 1;
+            this.tbpStudents.Text = "Studenti";
+            this.tbpStudents.UseVisualStyleBackColor = true;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -310,31 +321,109 @@ namespace QualifWorksClient
             this.positionDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.positionDataGridViewTextBoxColumn.Width = 125;
             // 
-            // btnUpdateSupervisors
+            // bsSupervisors
             // 
-            this.btnUpdateSupervisors.Location = new System.Drawing.Point(221, 362);
-            this.btnUpdateSupervisors.Name = "btnUpdateSupervisors";
-            this.btnUpdateSupervisors.Size = new System.Drawing.Size(83, 32);
-            this.btnUpdateSupervisors.TabIndex = 2;
-            this.btnUpdateSupervisors.Text = "Saglabāt";
-            this.btnUpdateSupervisors.UseVisualStyleBackColor = true;
-            this.btnUpdateSupervisors.Click += new System.EventHandler(this.btnUpdateSupervisors_Click);
+            this.bsSupervisors.DataMember = "Supervisors";
+            this.bsSupervisors.DataSource = this.dsDataModel;
+            this.bsSupervisors.Sort = "Surname";
             // 
-            // btnCancelSupervisors
+            // dsDataModel
             // 
-            this.btnCancelSupervisors.Location = new System.Drawing.Point(342, 362);
-            this.btnCancelSupervisors.Name = "btnCancelSupervisors";
-            this.btnCancelSupervisors.Size = new System.Drawing.Size(84, 32);
-            this.btnCancelSupervisors.TabIndex = 3;
-            this.btnCancelSupervisors.Text = "Atcelt";
-            this.btnCancelSupervisors.UseVisualStyleBackColor = true;
-            this.btnCancelSupervisors.Click += new System.EventHandler(this.btnCancelSupervisors_Click);
+            this.dsDataModel.DataSetName = "DataModelDataSet";
+            this.dsDataModel.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // taQualifWorks
+            // 
+            this.taQualifWorks.ClearBeforeFill = true;
+            // 
+            // taSupervisors
+            // 
+            this.taSupervisors.ClearBeforeFill = true;
+            // 
+            // grbSupervisor
+            // 
+            this.grbSupervisor.Controls.Add(this.cmbDegree);
+            this.grbSupervisor.Controls.Add(this.txtSurname);
+            this.grbSupervisor.Controls.Add(this.txtName);
+            this.grbSupervisor.Controls.Add(this.lblPosition);
+            this.grbSupervisor.Controls.Add(this.lblDegree);
+            this.grbSupervisor.Controls.Add(this.lblSurname);
+            this.grbSupervisor.Controls.Add(this.lblName);
+            this.grbSupervisor.Location = new System.Drawing.Point(8, 291);
+            this.grbSupervisor.Name = "grbSupervisor";
+            this.grbSupervisor.Size = new System.Drawing.Size(359, 208);
+            this.grbSupervisor.TabIndex = 4;
+            this.grbSupervisor.TabStop = false;
+            this.grbSupervisor.Text = "Darba vadītājs";
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(21, 43);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(49, 17);
+            this.lblName.TabIndex = 0;
+            this.lblName.Text = "&Vārds:";
+            // 
+            // lblSurname
+            // 
+            this.lblSurname.AutoSize = true;
+            this.lblSurname.Location = new System.Drawing.Point(21, 73);
+            this.lblSurname.Name = "lblSurname";
+            this.lblSurname.Size = new System.Drawing.Size(64, 17);
+            this.lblSurname.TabIndex = 1;
+            this.lblSurname.Text = "&Uzvārds:";
+            // 
+            // lblDegree
+            // 
+            this.lblDegree.AutoSize = true;
+            this.lblDegree.Location = new System.Drawing.Point(21, 101);
+            this.lblDegree.Name = "lblDegree";
+            this.lblDegree.Size = new System.Drawing.Size(127, 17);
+            this.lblDegree.TabIndex = 2;
+            this.lblDegree.Text = "&Zinātniskais grāds:";
+            // 
+            // lblPosition
+            // 
+            this.lblPosition.AutoSize = true;
+            this.lblPosition.Location = new System.Drawing.Point(21, 130);
+            this.lblPosition.Name = "lblPosition";
+            this.lblPosition.Size = new System.Drawing.Size(51, 17);
+            this.lblPosition.TabIndex = 3;
+            this.lblPosition.Text = "&Amats:";
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(175, 40);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(164, 22);
+            this.txtName.TabIndex = 4;
+            // 
+            // txtSurname
+            // 
+            this.txtSurname.Location = new System.Drawing.Point(175, 70);
+            this.txtSurname.Name = "txtSurname";
+            this.txtSurname.Size = new System.Drawing.Size(164, 22);
+            this.txtSurname.TabIndex = 5;
+            // 
+            // cmbDegree
+            // 
+            this.cmbDegree.FormattingEnabled = true;
+            this.cmbDegree.Location = new System.Drawing.Point(175, 101);
+            this.cmbDegree.Name = "cmbDegree";
+            this.cmbDegree.Size = new System.Drawing.Size(164, 24);
+            this.cmbDegree.TabIndex = 6;
+            // 
+            // fKQualifWorksSupervisorsBindingSource
+            // 
+            this.fKQualifWorksSupervisorsBindingSource.DataMember = "FK_QualifWorks_Supervisors";
+            this.fKQualifWorksSupervisorsBindingSource.DataSource = this.bsSupervisors;
             // 
             // frmQualifWorks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(740, 443);
+            this.ClientSize = new System.Drawing.Size(740, 553);
             this.Controls.Add(this.tbcQualifWorks);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -345,12 +434,15 @@ namespace QualifWorksClient
             this.tbcQualifWorks.ResumeLayout(false);
             this.tbpSupervisors.ResumeLayout(false);
             this.tbpSupervisors.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dsDataModel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsSupervisors)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSupervisors)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bnSupervisors)).EndInit();
             this.bnSupervisors.ResumeLayout(false);
             this.bnSupervisors.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSupervisors)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsSupervisors)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsDataModel)).EndInit();
+            this.grbSupervisor.ResumeLayout(false);
+            this.grbSupervisor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fKQualifWorksSupervisorsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -383,6 +475,15 @@ namespace QualifWorksClient
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.Button btnUpdateSupervisors;
         private System.Windows.Forms.Button btnCancelSupervisors;
+        private System.Windows.Forms.GroupBox grbSupervisor;
+        private System.Windows.Forms.Label lblDegree;
+        private System.Windows.Forms.Label lblSurname;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.ComboBox cmbDegree;
+        private System.Windows.Forms.TextBox txtSurname;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.Label lblPosition;
+        private System.Windows.Forms.BindingSource fKQualifWorksSupervisorsBindingSource;
     }
 }
 
