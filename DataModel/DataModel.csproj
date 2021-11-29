@@ -70,6 +70,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="QualifLevel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="QualificationWorks.mdf" />
