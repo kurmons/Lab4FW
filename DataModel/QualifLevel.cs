@@ -8,6 +8,10 @@ namespace DataModel
 {
     public class QualifLevel
     {
+        public QualifLevel() { }
+
+        public List<QualifLevel> GetData() { return Levels; }
+
         public static List<QualifLevel> Levels
         {
             get

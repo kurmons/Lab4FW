@@ -36,6 +36,8 @@ namespace DataModel {
         
         private StudentsForGridViewDataTable tableStudentsForGridView;
         
+        private TopicSelectionDataTable tableTopicSelection;
+        
         private global::System.Data.DataRelation relationFK_QualifWorks_Supervisors;
         
         private global::System.Data.DataRelation relationFK_Students_QualifWorks;
@@ -57,6 +59,12 @@ namespace DataModel {
         private global::System.Data.DataRelation relationFK_QualifWorks_Supervisors4;
         
         private global::System.Data.DataRelation relationFK_QualifWorks_Supervisors5;
+        
+        private global::System.Data.DataRelation relationFK_Students_QualifWorks3;
+        
+        private global::System.Data.DataRelation relationFK_QualifWorks_Supervisors6;
+        
+        private global::System.Data.DataRelation relationFK_QualifWorks_Supervisors7;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -103,6 +111,9 @@ namespace DataModel {
                 }
                 if ((ds.Tables["StudentsForGridView"] != null)) {
                     base.Tables.Add(new StudentsForGridViewDataTable(ds.Tables["StudentsForGridView"]));
+                }
+                if ((ds.Tables["TopicSelection"] != null)) {
+                    base.Tables.Add(new TopicSelectionDataTable(ds.Tables["TopicSelection"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -179,6 +190,16 @@ namespace DataModel {
         public StudentsForGridViewDataTable StudentsForGridView {
             get {
                 return this.tableStudentsForGridView;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public TopicSelectionDataTable TopicSelection {
+            get {
+                return this.tableTopicSelection;
             }
         }
         
@@ -267,6 +288,9 @@ namespace DataModel {
                 if ((ds.Tables["StudentsForGridView"] != null)) {
                     base.Tables.Add(new StudentsForGridViewDataTable(ds.Tables["StudentsForGridView"]));
                 }
+                if ((ds.Tables["TopicSelection"] != null)) {
+                    base.Tables.Add(new TopicSelectionDataTable(ds.Tables["TopicSelection"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -336,6 +360,12 @@ namespace DataModel {
                     this.tableStudentsForGridView.InitVars();
                 }
             }
+            this.tableTopicSelection = ((TopicSelectionDataTable)(base.Tables["TopicSelection"]));
+            if ((initTable == true)) {
+                if ((this.tableTopicSelection != null)) {
+                    this.tableTopicSelection.InitVars();
+                }
+            }
             this.relationFK_QualifWorks_Supervisors = this.Relations["FK_QualifWorks_Supervisors"];
             this.relationFK_Students_QualifWorks = this.Relations["FK_Students_QualifWorks"];
             this.relationFK_Students_Supervisors = this.Relations["FK_Students_Supervisors"];
@@ -347,6 +377,9 @@ namespace DataModel {
             this.relationFK_Students_QualifWorks2 = this.Relations["FK_Students_QualifWorks2"];
             this.relationFK_QualifWorks_Supervisors4 = this.Relations["FK_QualifWorks_Supervisors4"];
             this.relationFK_QualifWorks_Supervisors5 = this.Relations["FK_QualifWorks_Supervisors5"];
+            this.relationFK_Students_QualifWorks3 = this.Relations["FK_Students_QualifWorks3"];
+            this.relationFK_QualifWorks_Supervisors6 = this.Relations["FK_QualifWorks_Supervisors6"];
+            this.relationFK_QualifWorks_Supervisors7 = this.Relations["FK_QualifWorks_Supervisors7"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -369,6 +402,8 @@ namespace DataModel {
             base.Tables.Add(this.tableSupervisorName);
             this.tableStudentsForGridView = new StudentsForGridViewDataTable();
             base.Tables.Add(this.tableStudentsForGridView);
+            this.tableTopicSelection = new TopicSelectionDataTable();
+            base.Tables.Add(this.tableTopicSelection);
             this.relationFK_QualifWorks_Supervisors = new global::System.Data.DataRelation("FK_QualifWorks_Supervisors", new global::System.Data.DataColumn[] {
                         this.tableSupervisors.SupervisorIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableQualifWorks.SupervisorIDColumn}, false);
@@ -413,6 +448,18 @@ namespace DataModel {
                         this.tableSupervisorName.SupervisorIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableStudentsForGridView.SupervisorIDColumn}, false);
             this.Relations.Add(this.relationFK_QualifWorks_Supervisors5);
+            this.relationFK_Students_QualifWorks3 = new global::System.Data.DataRelation("FK_Students_QualifWorks3", new global::System.Data.DataColumn[] {
+                        this.tableTopicSelection.TopicIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableStudents.TopicIDColumn}, false);
+            this.Relations.Add(this.relationFK_Students_QualifWorks3);
+            this.relationFK_QualifWorks_Supervisors6 = new global::System.Data.DataRelation("FK_QualifWorks_Supervisors6", new global::System.Data.DataColumn[] {
+                        this.tableSupervisors.SupervisorIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableTopicSelection.SupervisorIDColumn}, false);
+            this.Relations.Add(this.relationFK_QualifWorks_Supervisors6);
+            this.relationFK_QualifWorks_Supervisors7 = new global::System.Data.DataRelation("FK_QualifWorks_Supervisors7", new global::System.Data.DataColumn[] {
+                        this.tableSupervisorName.SupervisorIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableTopicSelection.SupervisorIDColumn}, false);
+            this.Relations.Add(this.relationFK_QualifWorks_Supervisors7);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -448,6 +495,12 @@ namespace DataModel {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializeStudentsForGridView() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializeTopicSelection() {
             return false;
         }
         
@@ -523,6 +576,9 @@ namespace DataModel {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void StudentsForGridViewRowChangeEventHandler(object sender, StudentsForGridViewRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void TopicSelectionRowChangeEventHandler(object sender, TopicSelectionRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -2595,6 +2651,333 @@ namespace DataModel {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class TopicSelectionDataTable : global::System.Data.TypedTableBase<TopicSelectionRow> {
+            
+            private global::System.Data.DataColumn columnSupervisorID;
+            
+            private global::System.Data.DataColumn columnSupervisor;
+            
+            private global::System.Data.DataColumn columnTopicID;
+            
+            private global::System.Data.DataColumn columnTopic;
+            
+            private global::System.Data.DataColumn columnSelectionCnt;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public TopicSelectionDataTable() {
+                this.TableName = "TopicSelection";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal TopicSelectionDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected TopicSelectionDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn SupervisorIDColumn {
+                get {
+                    return this.columnSupervisorID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn SupervisorColumn {
+                get {
+                    return this.columnSupervisor;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TopicIDColumn {
+                get {
+                    return this.columnTopicID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TopicColumn {
+                get {
+                    return this.columnTopic;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn SelectionCntColumn {
+                get {
+                    return this.columnSelectionCnt;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public TopicSelectionRow this[int index] {
+                get {
+                    return ((TopicSelectionRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event TopicSelectionRowChangeEventHandler TopicSelectionRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event TopicSelectionRowChangeEventHandler TopicSelectionRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event TopicSelectionRowChangeEventHandler TopicSelectionRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event TopicSelectionRowChangeEventHandler TopicSelectionRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddTopicSelectionRow(TopicSelectionRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public TopicSelectionRow AddTopicSelectionRow(SupervisorsRow parentSupervisorsRowByFK_QualifWorks_Supervisors6, string Supervisor, string Topic, int SelectionCnt) {
+                TopicSelectionRow rowTopicSelectionRow = ((TopicSelectionRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        Supervisor,
+                        null,
+                        Topic,
+                        SelectionCnt};
+                if ((parentSupervisorsRowByFK_QualifWorks_Supervisors6 != null)) {
+                    columnValuesArray[0] = parentSupervisorsRowByFK_QualifWorks_Supervisors6[0];
+                }
+                rowTopicSelectionRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowTopicSelectionRow);
+                return rowTopicSelectionRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public TopicSelectionRow FindByTopicID(int TopicID) {
+                return ((TopicSelectionRow)(this.Rows.Find(new object[] {
+                            TopicID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                TopicSelectionDataTable cln = ((TopicSelectionDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new TopicSelectionDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnSupervisorID = base.Columns["SupervisorID"];
+                this.columnSupervisor = base.Columns["Supervisor"];
+                this.columnTopicID = base.Columns["TopicID"];
+                this.columnTopic = base.Columns["Topic"];
+                this.columnSelectionCnt = base.Columns["SelectionCnt"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnSupervisorID = new global::System.Data.DataColumn("SupervisorID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSupervisorID);
+                this.columnSupervisor = new global::System.Data.DataColumn("Supervisor", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSupervisor);
+                this.columnTopicID = new global::System.Data.DataColumn("TopicID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTopicID);
+                this.columnTopic = new global::System.Data.DataColumn("Topic", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTopic);
+                this.columnSelectionCnt = new global::System.Data.DataColumn("SelectionCnt", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSelectionCnt);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnTopicID}, true));
+                this.columnSupervisorID.AllowDBNull = false;
+                this.columnSupervisor.ReadOnly = true;
+                this.columnSupervisor.MaxLength = 57;
+                this.columnTopicID.AutoIncrement = true;
+                this.columnTopicID.AutoIncrementSeed = -1;
+                this.columnTopicID.AutoIncrementStep = -1;
+                this.columnTopicID.AllowDBNull = false;
+                this.columnTopicID.ReadOnly = true;
+                this.columnTopicID.Unique = true;
+                this.columnTopic.AllowDBNull = false;
+                this.columnTopic.MaxLength = 200;
+                this.columnSelectionCnt.ReadOnly = true;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public TopicSelectionRow NewTopicSelectionRow() {
+                return ((TopicSelectionRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new TopicSelectionRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(TopicSelectionRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.TopicSelectionRowChanged != null)) {
+                    this.TopicSelectionRowChanged(this, new TopicSelectionRowChangeEvent(((TopicSelectionRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.TopicSelectionRowChanging != null)) {
+                    this.TopicSelectionRowChanging(this, new TopicSelectionRowChangeEvent(((TopicSelectionRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.TopicSelectionRowDeleted != null)) {
+                    this.TopicSelectionRowDeleted(this, new TopicSelectionRowChangeEvent(((TopicSelectionRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.TopicSelectionRowDeleting != null)) {
+                    this.TopicSelectionRowDeleting(this, new TopicSelectionRowChangeEvent(((TopicSelectionRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemoveTopicSelectionRow(TopicSelectionRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DataModelDataSet ds = new DataModelDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "TopicSelectionDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class QualifWorksRow : global::System.Data.DataRow {
@@ -2832,6 +3215,17 @@ namespace DataModel {
                     return ((StudentsForGridViewRow[])(base.GetChildRows(this.Table.ChildRelations["FK_QualifWorks_Supervisors4"])));
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public TopicSelectionRow[] GetTopicSelectionRows() {
+                if ((this.Table.ChildRelations["FK_QualifWorks_Supervisors6"] == null)) {
+                    return new TopicSelectionRow[0];
+                }
+                else {
+                    return ((TopicSelectionRow[])(base.GetChildRows(this.Table.ChildRelations["FK_QualifWorks_Supervisors6"])));
+                }
+            }
         }
         
         /// <summary>
@@ -3024,6 +3418,17 @@ namespace DataModel {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Students_QualifWorks2"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public TopicSelectionRow TopicSelectionRow {
+                get {
+                    return ((TopicSelectionRow)(this.GetParentRow(this.Table.ParentRelations["FK_Students_QualifWorks3"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Students_QualifWorks3"]);
                 }
             }
             
@@ -3303,6 +3708,17 @@ namespace DataModel {
                 }
                 else {
                     return ((StudentsForGridViewRow[])(base.GetChildRows(this.Table.ChildRelations["FK_QualifWorks_Supervisors5"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public TopicSelectionRow[] GetTopicSelectionRows() {
+                if ((this.Table.ChildRelations["FK_QualifWorks_Supervisors7"] == null)) {
+                    return new TopicSelectionRow[0];
+                }
+                else {
+                    return ((TopicSelectionRow[])(base.GetChildRows(this.Table.ChildRelations["FK_QualifWorks_Supervisors7"])));
                 }
             }
         }
@@ -3686,6 +4102,143 @@ namespace DataModel {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class TopicSelectionRow : global::System.Data.DataRow {
+            
+            private TopicSelectionDataTable tableTopicSelection;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal TopicSelectionRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableTopicSelection = ((TopicSelectionDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int SupervisorID {
+                get {
+                    return ((int)(this[this.tableTopicSelection.SupervisorIDColumn]));
+                }
+                set {
+                    this[this.tableTopicSelection.SupervisorIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Supervisor {
+                get {
+                    try {
+                        return ((string)(this[this.tableTopicSelection.SupervisorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Supervisor\' in table \'TopicSelection\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTopicSelection.SupervisorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int TopicID {
+                get {
+                    return ((int)(this[this.tableTopicSelection.TopicIDColumn]));
+                }
+                set {
+                    this[this.tableTopicSelection.TopicIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Topic {
+                get {
+                    return ((string)(this[this.tableTopicSelection.TopicColumn]));
+                }
+                set {
+                    this[this.tableTopicSelection.TopicColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int SelectionCnt {
+                get {
+                    try {
+                        return ((int)(this[this.tableTopicSelection.SelectionCntColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SelectionCnt\' in table \'TopicSelection\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTopicSelection.SelectionCntColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public SupervisorsRow SupervisorsRow {
+                get {
+                    return ((SupervisorsRow)(this.GetParentRow(this.Table.ParentRelations["FK_QualifWorks_Supervisors6"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_QualifWorks_Supervisors6"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public SupervisorNameRow SupervisorNameRow {
+                get {
+                    return ((SupervisorNameRow)(this.GetParentRow(this.Table.ParentRelations["FK_QualifWorks_Supervisors7"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_QualifWorks_Supervisors7"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsSupervisorNull() {
+                return this.IsNull(this.tableTopicSelection.SupervisorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetSupervisorNull() {
+                this[this.tableTopicSelection.SupervisorColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsSelectionCntNull() {
+                return this.IsNull(this.tableTopicSelection.SelectionCntColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetSelectionCntNull() {
+                this[this.tableTopicSelection.SelectionCntColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public StudentsRow[] GetStudentsRows() {
+                if ((this.Table.ChildRelations["FK_Students_QualifWorks3"] == null)) {
+                    return new StudentsRow[0];
+                }
+                else {
+                    return ((StudentsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Students_QualifWorks3"])));
+                }
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -3875,6 +4428,40 @@ namespace DataModel {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public StudentsForGridViewRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class TopicSelectionRowChangeEvent : global::System.EventArgs {
+            
+            private TopicSelectionRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public TopicSelectionRowChangeEvent(TopicSelectionRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public TopicSelectionRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -4855,7 +5442,7 @@ SELECT StudentID, Name, Surname, IDCard, Level, Dues, Notes, TopicID, ReviewerID
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT StudentID, Name, Surname, IDCard, [Level], Dues, Notes, TopicID, ReviewerI" +
@@ -4867,6 +5454,14 @@ SELECT StudentID, Name, Surname, IDCard, Level, Dues, Notes, TopicID, ReviewerID
                 "\nFROM     Students\r\nWHERE  (StudentID = @StudentID)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "StudentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT TopicID\r\nFROM     Students\r\nWHERE  (IDCard = @IDCard) AND (Name = @Name) A" +
+                "ND (Surname = @Surname)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDCard", global::System.Data.SqlDbType.NVarChar, 9, global::System.Data.ParameterDirection.Input, 0, 0, "IDCard", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 25, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Surname", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "Surname", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5255,6 +5850,52 @@ SELECT StudentID, Name, Surname, IDCard, Level, Dues, Notes, TopicID, ReviewerID
                     global::System.Nullable<int> Original_TopicID, 
                     global::System.Nullable<int> Original_ReviewerID) {
             return this.Update(Name, Surname, IDCard, Level, Dues, Notes, TopicID, ReviewerID, Original_StudentID, Original_Name, Original_Surname, Original_IDCard, Original_Level, Original_Dues, Original_Notes, Original_TopicID, Original_ReviewerID, Original_StudentID);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual object GetTopic(string IDCard, string Name, string Surname) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            if ((IDCard == null)) {
+                throw new global::System.ArgumentNullException("IDCard");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(IDCard));
+            }
+            if ((Name == null)) {
+                throw new global::System.ArgumentNullException("Name");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(Name));
+            }
+            if ((Surname == null)) {
+                throw new global::System.ArgumentNullException("Surname");
+            }
+            else {
+                command.Parameters[2].Value = ((string)(Surname));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
         }
     }
     
@@ -5819,6 +6460,173 @@ ORDER BY Student";
             }
             int returnValue = this.Adapter.Fill(dataTable);
             return returnValue;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class TopicSelectionTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public TopicSelectionTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "TopicSelection";
+            tableMapping.ColumnMappings.Add("SupervisorID", "SupervisorID");
+            tableMapping.ColumnMappings.Add("Supervisor", "Supervisor");
+            tableMapping.ColumnMappings.Add("TopicID", "TopicID");
+            tableMapping.ColumnMappings.Add("Topic", "Topic");
+            tableMapping.ColumnMappings.Add("SelectionCnt", "SelectionCnt");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::DataModel.Properties.Settings.Default.QualificationWorksConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"SELECT qw.SupervisorID, s.Surname + N', ' + s.Name AS Supervisor, qw.TopicID, qw.Topic, CASE WHEN u.Cnt IS NULL THEN 0 ELSE u.Cnt END AS SelectionCnt
+FROM     QualifWorks AS qw INNER JOIN
+                  Supervisors AS s ON qw.SupervisorID = s.SupervisorID LEFT OUTER JOIN
+                      (SELECT TopicID, COUNT(TopicID) AS Cnt
+                       FROM      Students
+                       GROUP BY TopicID) AS u ON qw.TopicID = u.TopicID
+WHERE  (qw.Level <= @QualifLevel)
+ORDER BY Supervisor, qw.Topic";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@QualifLevel", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Level", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual DataModelDataSet.TopicSelectionDataTable GetData(int QualifLevel) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(QualifLevel));
+            DataModelDataSet.TopicSelectionDataTable dataTable = new DataModelDataSet.TopicSelectionDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
         }
     }
     

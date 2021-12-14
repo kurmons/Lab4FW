@@ -32,3 +32,10 @@ namespace DataModel
         }
     }
 }
+
+namespace DataModel.DataModelDataSetTableAdapters {
+    
+    
+    public partial class TopicSelectionTableAdapter {
+    }
+}

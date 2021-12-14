@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModel", "DataModel\Data
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QualifWorksClient", "QualifWorksClient\QualifWorksClient.csproj", "{A2CAEC88-0E98-44C4-ACA0-9FC0C142EA38}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csproj", "{B02A2496-2C29-493D-AED7-FE0A61A5FCB8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A2CAEC88-0E98-44C4-ACA0-9FC0C142EA38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2CAEC88-0E98-44C4-ACA0-9FC0C142EA38}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2CAEC88-0E98-44C4-ACA0-9FC0C142EA38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B02A2496-2C29-493D-AED7-FE0A61A5FCB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B02A2496-2C29-493D-AED7-FE0A61A5FCB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B02A2496-2C29-493D-AED7-FE0A61A5FCB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B02A2496-2C29-493D-AED7-FE0A61A5FCB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
